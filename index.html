@@ -514,8 +514,8 @@
         function switchLanguage(lang) {
             currentLang = lang;
             
-            document.querySelectorAll('[data-en]').forEach(element => {
-                const key = element.getAttribute('data-en');
+            document.querySelectorAll('[data-tr]').forEach(element => {
+                const key = element.getAttribute('data-tr');
                 if (translations[currentLang][key]) {
                     element.innerHTML = translations[currentLang][key];
                 }
@@ -677,6 +677,7 @@
 </body>
 
 </html>
+
 
 
 
