@@ -526,6 +526,11 @@
             switchLanguage(e.target.value);
         });
 
+        // Set initial language to English on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            switchLanguage('en');
+        });
+        
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -672,3 +677,4 @@
 </body>
 
 </html>
+
