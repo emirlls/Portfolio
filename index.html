@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emir Leylek - Backend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#0ea5e9',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-slate-200">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-dark/95 backdrop-blur-md z-50 shadow-lg border-b border-primary/20">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                EL
+            </div>
+            <div class="flex items-center gap-6">
+                <ul class="hidden md:flex gap-8">
+                    <li><a href="#home" class="nav-link hover:text-secondary transition-colors font-medium" data-tr="nav_home" data-en="Home">Ana Sayfa</a></li>
+                    <li><a href="#about" class="nav-link hover:text-secondary transition-colors font-medium" data-tr="nav_about" data-en="About">Hakkımda</a></li>
+                    <li><a href="#skills" class="nav-link hover:text-secondary transition-colors font-medium" data-tr="nav_skills" data-en="Skills">Yetenekler</a></li>
+                    <li><a href="#experience" class="nav-link hover:text-secondary transition-colors font-medium" data-tr="nav_experience" data-en="Experience">Deneyim</a></li>
+                    <li><a href="#projects" class="nav-link hover:text-secondary transition-colors font-medium" data-tr="nav_projects" data-en="Projects">Projeler</a></li>
+                    <li><a href="#contact" class="nav-link hover:text-secondary transition-colors font-medium" data-tr="nav_contact" data-en="Contact">İletişim</a></li>
+                </ul>
+                <select id="lang-select" class="px-4 py-2 bg-dark-light border border-primary/30 rounded-lg text-slate-200 cursor-pointer hover:border-primary transition-all font-medium outline-none">
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="en">🇬🇧 English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-dark to-dark-light relative overflow-hidden">
+        <!-- 3D Canvas -->
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        
+        <div class="text-center z-10 px-6 max-w-4xl relative">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in">
+                Emir Leylek
+            </h1>
+            <div class="text-2xl md:text-3xl text-slate-400 mb-6 animate-fade-in-delay-1" data-tr="hero_subtitle" data-en="Backend Developer">
+                Backend Developer
+            </div>
+            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto animate-fade-in-delay-2" data-tr="hero_description" data-en="I develop scalable and reliable backend systems. I am a software developer specialized in .NET Core, microservice architecture and modern technologies.">
+                Ölçeklenebilir ve güvenilir backend sistemleri geliştiriyorum. .NET Core, mikroservis mimarisi ve modern teknolojiler konusunda uzmanlaşmış bir yazılım geliştiricisiyim.
+            </p>
+            
+            <div class="flex gap-6 justify-center mt-8 animate-fade-in-delay-3">
+                <a href="https://linkedin.com/in/emir-leylek-0a679a193/" target="_blank" 
+                   class="w-12 h-12 rounded-full bg-dark-light/80 backdrop-blur-sm border-2 border-transparent hover:border-secondary flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1 hover:scale-110">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/emrleylek" target="_blank"
+                   class="w-12 h-12 rounded-full bg-dark-light/80 backdrop-blur-sm border-2 border-transparent hover:border-secondary flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1 hover:scale-110">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:emrlylk4225@gmail.com"
+                   class="w-12 h-12 rounded-full bg-dark-light/80 backdrop-blur-sm border-2 border-transparent hover:border-secondary flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1 hover:scale-110">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+905318919905"
+                   class="w-12 h-12 rounded-full bg-dark-light/80 backdrop-blur-sm border-2 border-transparent hover:border-secondary flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1 hover:scale-110">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 relative pb-4" data-tr="about_title" data-en="About Me">
+            Hakkımda
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h3 class="text-2xl text-secondary mb-4" data-tr="about_role" data-en="Backend Developer">Backend Developer</h3>
+                <p class="text-slate-400 mb-4" data-tr="about_p1" data-en="I graduated from Eskisehir Osmangazi University Computer Engineering. I have practical experience in developing backend systems with .NET Core.">
+                    Eskişehir Osmangazi Üniversitesi Bilgisayar Mühendisliği mezunuyum. .NET Core ile backend sistemleri geliştirme konusunda pratik deneyime sahibim.
+                </p>
+                <p class="text-slate-400 mb-4" data-tr="about_p2" data-en="I develop scalable, maintainable and testable applications with Clean Architecture, Domain-Driven Design (DDD) and modern software development principles.">
+                    Clean Architecture, Domain-Driven Design (DDD) ve modern yazılım geliştirme prensipleriyle ölçeklenebilir, sürdürülebilir ve test edilebilir uygulamalar geliştiriyorum.
+                </p>
+                <p class="text-slate-400" data-tr="about_p3" data-en="I produce solutions to real-world problems such as smart city solutions, geographic information systems and payment systems.">
+                    Akıllı şehir çözümleri, coğrafi bilgi sistemleri ve ödeme sistemleri gibi gerçek dünya problemlerine çözümler üretiyorum.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-dark-light p-6 rounded-xl border border-primary/20 hover:border-primary transition-all hover:-translate-y-2 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">2+</div>
+                    <div class="text-slate-400 text-sm" data-tr="stat_experience" data-en="Years Experience">Yıl Deneyim</div>
+                </div>
+                <div class="bg-dark-light p-6 rounded-xl border border-primary/20 hover:border-primary transition-all hover:-translate-y-2 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">10+</div>
+                    <div class="text-slate-400 text-sm" data-tr="stat_projects" data-en="Projects">Proje</div>
+                </div>
+                <div class="bg-dark-light p-6 rounded-xl border border-primary/20 hover:border-primary transition-all hover:-translate-y-2 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">15+</div>
+                    <div class="text-slate-400 text-sm" data-tr="stat_technologies" data-en="Technologies">Teknoloji</div>
+                </div>
+                <div class="bg-dark-light p-6 rounded-xl border border-primary/20 hover:border-primary transition-all hover:-translate-y-2 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">100%</div>
+                    <div class="text-slate-400 text-sm" data-tr="stat_success" data-en="Success">Başarı</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 relative pb-4" data-tr="skills_title" data-en="Technical Skills">
+            Teknik Yetenekler
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-dark-light p-8 rounded-2xl border border-primary/20 hover:border-primary transition-all hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20">
+                <h3 class="text-xl text-secondary mb-6 flex items-center gap-2">
+                    <i class="fas fa-code"></i> Backend
+                </h3>
+                <ul class="space-y-3">
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> .NET Core
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Entity Framework Core
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> ABP Framework
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Dapper
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> ASP.NET MVC
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-dark-light p-8 rounded-2xl border border-primary/20 hover:border-primary transition-all hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20">
+                <h3 class="text-xl text-secondary mb-6 flex items-center gap-2">
+                    <i class="fas fa-database"></i> Veritabanı
+                </h3>
+                <ul class="space-y-3">
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> PostgreSQL
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> MSSQL
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Redis
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Elastic Search
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-dark-light p-8 rounded-2xl border border-primary/20 hover:border-primary transition-all hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20">
+                <h3 class="text-xl text-secondary mb-6 flex items-center gap-2">
+                    <i class="fas fa-project-diagram"></i> Mimari
+                </h3>
+                <ul class="space-y-3">
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Clean Architecture
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Domain-Driven Design
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Event-Driven Design
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Repository Pattern
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Microservices
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-dark-light p-8 rounded-2xl border border-primary/20 hover:border-primary transition-all hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20">
+                <h3 class="text-xl text-secondary mb-6 flex items-center gap-2">
+                    <i class="fas fa-tools"></i> DevOps & Tools
+                </h3>
+                <ul class="space-y-3">
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Docker
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Git
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> CI/CD
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> RabbitMQ
+                    </li>
+                    <li class="text-slate-400 flex items-center gap-2">
+                        <span class="text-primary text-xl">▹</span> Agile
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 relative pb-4" data-tr="experience_title" data-en="Work Experience">
+            İş Deneyimi
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        </h2>
+        
+        <div class="relative pl-8 md:pl-12">
+            <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary"></div>
+            
+            <div class="relative mb-12 pl-8">
+                <div class="absolute left-[-2.6rem] md:left-[-3.1rem] top-0 w-3 h-3 bg-primary rounded-full border-4 border-dark"></div>
+                <h3 class="text-2xl text-secondary mb-2" data-tr="exp1_title" data-en="Backend Developer">Backend Developer</h3>
+                <div class="text-primary font-semibold mb-1" data-tr="exp1_company" data-en="Piton Technology - Eskisehir">Piton Technology - Eskişehir</div>
+                <div class="text-slate-400 text-sm mb-4" data-tr="exp1_date" data-en="July 2024 - Present">Temmuz 2024 - Devam Ediyor</div>
+                <ul class="space-y-2 text-slate-400">
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp1_desc1" data-en="Designed scalable web applications for smart city solutions, GIS and payment systems">Akıllı şehir çözümleri, CBS ve ödeme sistemleri için ölçeklenebilir web uygulamaları tasarladım</span></li>
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp1_desc2" data-en="Improved response time by 40% using .NET Core, EF Core, ABP Framework and Clean Architecture">NET Core, EF Core, ABP Framework ve Clean Architecture kullanarak yanıt süresini %40 iyileştirdim</span></li>
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp1_desc3" data-en="Optimized performance with Redis caching and Elastic Search">Redis caching ve Elastic Search ile performans optimizasyonu sağladım</span></li>
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp1_desc4" data-en="Built asynchronous message pipelines with RabbitMQ, processing tens of thousands of messages daily">RabbitMQ ile asenkron mesaj pipeline'ları oluşturarak günde on binlerce mesaj işledim</span></li>
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp1_desc5" data-en="Created clean and maintainable codebases with DDD and Repository Pattern">DDD ve Repository Pattern ile temiz ve sürdürülebilir kod tabanları oluşturdum</span></li>
+                </ul>
+            </div>
+
+            <div class="relative mb-12 pl-8">
+                <div class="absolute left-[-2.6rem] md:left-[-3.1rem] top-0 w-3 h-3 bg-primary rounded-full border-4 border-dark"></div>
+                <h3 class="text-2xl text-secondary mb-2" data-tr="exp2_title" data-en="Backend Developer Intern">Backend Developer Intern</h3>
+                <div class="text-primary font-semibold mb-1" data-tr="exp2_company" data-en="Piton Technology - Eskisehir">Piton Technology - Eskişehir</div>
+                <div class="text-slate-400 text-sm mb-4" data-tr="exp2_date" data-en="May 2024 - July 2024">Mayıs 2024 - Temmuz 2024</div>
+                <ul class="space-y-2 text-slate-400">
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp2_desc1" data-en="Developed modular and secure bank management system">Modüler ve güvenli banka yönetim sistemi geliştirdim</span></li>
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp2_desc2" data-en="Used .NET Core, ABP Framework, SQL Server, Redis and Elastic Search">NET Core, ABP Framework, SQL Server, Redis ve Elastic Search kullandım</span></li>
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp2_desc3" data-en="Developed admin panel that streamlines bank transaction management">Banka işlem yönetimini kolaylaştıran admin paneli geliştirdim</span></li>
+                </ul>
+            </div>
+
+            <div class="relative mb-12 pl-8">
+                <div class="absolute left-[-2.6rem] md:left-[-3.1rem] top-0 w-3 h-3 bg-primary rounded-full border-4 border-dark"></div>
+                <h3 class="text-2xl text-secondary mb-2" data-tr="exp3_title" data-en="Backend Developer Intern">Backend Developer Intern</h3>
+                <div class="text-primary font-semibold mb-1" data-tr="exp3_company" data-en="Metasoft - Eskisehir">Metasoft - Eskişehir</div>
+                <div class="text-slate-400 text-sm mb-4" data-tr="exp3_date" data-en="January 2024 - February 2024">Ocak 2024 - Şubat 2024</div>
+                <ul class="space-y-2 text-slate-400">
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp3_desc1" data-en="Developed rating portal using .NET Core, SQL, HTML, CSS and JavaScript">NET Core, SQL, HTML, CSS ve JavaScript kullanarak değerlendirme portalı geliştirdim</span></li>
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp3_desc2" data-en="Analyzed customer feedback data and proposed system improvements">Müşteri geri bildirim verilerini analiz ederek sistem iyileştirmeleri önerdim</span></li>
+                </ul>
+            </div>
+
+            <div class="relative pl-8">
+                <div class="absolute left-[-2.6rem] md:left-[-3.1rem] top-0 w-3 h-3 bg-primary rounded-full border-4 border-dark"></div>
+                <h3 class="text-2xl text-secondary mb-2" data-tr="exp4_title" data-en="Backend Developer Intern">Backend Developer Intern</h3>
+                <div class="text-primary font-semibold mb-1" data-tr="exp4_company" data-en="Selcuk University - Konya">Selçuk Üniversitesi - Konya</div>
+                <div class="text-slate-400 text-sm mb-4" data-tr="exp4_date" data-en="January 2023 - February 2023">Ocak 2023 - Şubat 2023</div>
+                <ul class="space-y-2 text-slate-400">
+                    <li class="flex gap-2"><span class="text-primary">✓</span><span data-tr="exp4_desc1" data-en="Developed comprehensive car rental application using .NET Core and SQL">NET Core ve SQL kullanarak kapsamlı araç kiralama uygulaması geliştirdim</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 relative pb-4" data-tr="projects_title" data-en="Projects">
+            Projeler
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-dark-light rounded-2xl overflow-hidden border border-primary/20 hover:border-primary transition-all hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20">
+                <div class="bg-gradient-to-br from-primary to-secondary p-8 text-center">
+                    <div class="text-6xl mb-4">🎓</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3" data-tr="project1_title" data-en="Student Information System">Öğrenci Bilgi Sistemi</h3>
+                    <p class="text-slate-400 mb-4" data-tr="project1_desc" data-en="A portal that provides real-time information on course schedules, exam results and attendance status for students and faculty members.">
+                        Öğrenciler ve öğretim görevlileri için ders programları, sınav sonuçları ve devam durumu bilgilerini anlık olarak sunan portal.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30">ASP.NET MVC</span>
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30">SQL Server</span>
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30">C#</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark-light rounded-2xl overflow-hidden border border-primary/20 hover:border-primary transition-all hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20">
+                <div class="bg-gradient-to-br from-primary to-secondary p-8 text-center">
+                    <div class="text-6xl mb-4">🎮</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3" data-tr="project2_title" data-en="Game Center Information System">Oyun Merkezi Bilgi Sistemi</h3>
+                    <p class="text-slate-400 mb-4" data-tr="project2_desc" data-en="A system for game center operators to manage rented computers, track rental periods and process customer orders.">
+                        Oyun merkezi operatörleri için kiralanan bilgisayarları yönetme, kiralama sürelerini takip etme ve müşteri siparişlerini işleme sistemi.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30">ASP.NET</span>
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30">SQL</span>
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30" data-tr="project2_tag" data-en="Business Management">İş Yönetimi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark-light rounded-2xl overflow-hidden border border-primary/20 hover:border-primary transition-all hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20">
+                <div class="bg-gradient-to-br from-primary to-secondary p-8 text-center">
+                    <div class="text-6xl mb-4">🏥</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3" data-tr="project3_title" data-en="Veterinary Information System">Veteriner Bilgi Sistemi</h3>
+                    <p class="text-slate-400 mb-4" data-tr="project3_desc" data-en="A desktop application that helps veterinarians manage patient records and business operations.">
+                        Veterinerlerin hasta kayıtlarını ve iş operasyonlarını yönetmelerine yardımcı olan masaüstü uygulaması.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30">.NET Framework</span>
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30">SQL Server</span>
+                        <span class="px-3 py-1 bg-primary/20 text-secondary text-sm rounded-full border border-primary/30">Desktop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 relative pb-4" data-tr="contact_title" data-en="Contact">
+            İletişim
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        </h2>
+        
+        <div class="text-center max-w-2xl mx-auto">
+            <p class="text-slate-400 mb-12" data-tr="contact_description" data-en="You can contact me for your projects. I am always open to new opportunities and collaborations.">
+                Projeleriniz için benimle iletişime geçebilirsiniz. Yeni fırsatlar ve işbirlikleri için her zaman açığım.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-dark-light p-8 rounded-2xl border border-primary/20 hover:border-primary hover:-translate-y-2 transition-all">
+                    <i class="fas fa-envelope text-4xl text-primary mb-4"></i>
+                    <h4 class="text-lg font-semibold mb-2">Email</h4>
+                    <a href="mailto:emrlylk4225@gmail.com" class="text-slate-400 hover:text-secondary transition-colors">
+                        emrlylk4225@gmail.com
+                    </a>
+                </div>
+
+                <div class="bg-dark-light p-8 rounded-2xl border border-primary/20 hover:border-primary hover:-translate-y-2 transition-all">
+                    <i class="fas fa-map-marker-alt text-4xl text-primary mb-4"></i>
+                    <h4 class="text-lg font-semibold mb-2" data-tr="contact_location" data-en="Location">Konum</h4>
+                    <p class="text-slate-400" data-tr="contact_location_value" data-en="Eskisehir, Turkey">Eskişehir, Türkiye</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-light border-t border-primary/20 py-8 text-center text-slate-400">
+        <p data-tr="footer_copyright" data-en="&copy; 2024 Emir Leylek. All rights reserved.">&copy; 2024 Emir Leylek. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fade-in 1s ease; }
+        .animate-fade-in-delay-1 { animation: fade-in 1s ease 0.2s both; }
+        .animate-fade-in-delay-2 { animation: fade-in 1s ease 0.4s both; }
+        .animate-fade-in-delay-3 { animation: fade-in 1s ease 0.6s both; }
+    </style>
+
+    <script>
+        // Language Select
+        let currentLang = 'tr';
+        const langSelect = document.getElementById('lang-select');
+        
+        const translations = {
+            tr: {
+                nav_home: 'Ana Sayfa',
+                nav_about: 'Hakkımda',
+                nav_skills: 'Yetenekler',
+                nav_experience: 'Deneyim',
+                nav_projects: 'Projeler',
+                nav_contact: 'İletişim',
+                hero_subtitle: 'Backend Developer',
+                hero_description: 'Ölçeklenebilir ve güvenilir backend sistemleri geliştiriyorum. .NET Core, mikroservis mimarisi ve modern teknolojiler konusunda uzmanlaşmış bir yazılım geliştiricisiyim.',
+                about_title: 'Hakkımda',
+                about_role: 'Backend Developer',
+                about_p1: 'Eskişehir Osmangazi Üniversitesi Bilgisayar Mühendisliği mezunuyum. .NET Core ile backend sistemleri geliştirme konusunda pratik deneyime sahibim.',
+                about_p2: 'Clean Architecture, Domain-Driven Design (DDD) ve modern yazılım geliştirme prensipleriyle ölçeklenebilir, sürdürülebilir ve test edilebilir uygulamalar geliştiriyorum.',
+                about_p3: 'Akıllı şehir çözümleri, coğrafi bilgi sistemleri ve ödeme sistemleri gibi gerçek dünya problemlerine çözümler üretiyorum.',
+                stat_experience: 'Yıl Deneyim',
+                stat_projects: 'Proje',
+                stat_technologies: 'Teknoloji',
+                stat_success: 'Başarı',
+                skills_title: 'Teknik Yetenekler',
+                experience_title: 'İş Deneyimi',
+                exp1_title: 'Backend Developer',
+                exp1_company: 'Piton Technology - Eskişehir',
+                exp1_date: 'Temmuz 2024 - Devam Ediyor',
+                exp1_desc1: 'Akıllı şehir çözümleri, CBS ve ödeme sistemleri için ölçeklenebilir web uygulamaları tasarladım',
+                exp1_desc2: '.NET Core, EF Core, ABP Framework ve Clean Architecture kullanarak yanıt süresini %40 iyileştirdim',
+                exp1_desc3: 'Redis caching ve Elastic Search ile performans optimizasyonu sağladım',
+                exp1_desc4: 'RabbitMQ ile asenkron mesaj pipeline\'ları oluşturarak günde on binlerce mesaj işledim',
+                exp1_desc5: 'DDD ve Repository Pattern ile temiz ve sürdürülebilir kod tabanları oluşturdum',
+                exp2_title: 'Backend Developer Intern',
+                exp2_company: 'Piton Technology - Eskişehir',
+                exp2_date: 'Mayıs 2024 - Temmuz 2024',
+                exp2_desc1: 'Modüler ve güvenli banka yönetim sistemi geliştirdim',
+                exp2_desc2: '.NET Core, ABP Framework, SQL Server, Redis ve Elastic Search kullandım',
+                exp2_desc3: 'Banka işlem yönetimini kolaylaştıran admin paneli geliştirdim',
+                exp3_title: 'Backend Developer Intern',
+                exp3_company: 'Metasoft - Eskişehir',
+                exp3_date: 'Ocak 2024 - Şubat 2024',
+                exp3_desc1: '.NET Core, SQL, HTML, CSS ve JavaScript kullanarak değerlendirme portalı geliştirdim',
+                exp3_desc2: 'Müşteri geri bildirim verilerini analiz ederek sistem iyileştirmeleri önerdim',
+                exp4_title: 'Backend Developer Intern',
+                exp4_company: 'Selçuk Üniversitesi - Konya',
+                exp4_date: 'Ocak 2023 - Şubat 2023',
+                exp4_desc1: '.NET Core ve SQL kullanarak kapsamlı araç kiralama uygulaması geliştirdim',
+                projects_title: 'Projeler',
+                project1_title: 'Öğrenci Bilgi Sistemi',
+                project1_desc: 'Öğrenciler ve öğretim görevlileri için ders programları, sınav sonuçları ve devam durumu bilgilerini anlık olarak sunan portal.',
+                project2_title: 'Oyun Merkezi Bilgi Sistemi',
+                project2_desc: 'Oyun merkezi operatörleri için kiralanan bilgisayarları yönetme, kiralama sürelerini takip etme ve müşteri siparişlerini işleme sistemi.',
+                project2_tag: 'İş Yönetimi',
+                project3_title: 'Veteriner Bilgi Sistemi',
+                project3_desc: 'Veterinerlerin hasta kayıtlarını ve iş operasyonlarını yönetmelerine yardımcı olan masaüstü uygulaması.',
+                contact_title: 'İletişim',
+                contact_description: 'Projeleriniz için benimle iletişime geçebilirsiniz. Yeni fırsatlar ve işbirlikleri için her zaman açığım.',
+                contact_location: 'Konum',
+                contact_location_value: 'Eskişehir, Türkiye',
+                footer_copyright: '&copy; 2024 Emir Leylek. Tüm hakları saklıdır.'
+            },
+            en: {
+                nav_home: 'Home',
+                nav_about: 'About',
+                nav_skills: 'Skills',
+                nav_experience: 'Experience',
+                nav_projects: 'Projects',
+                nav_contact: 'Contact',
+                hero_subtitle: 'Backend Developer',
+                hero_description: 'I develop scalable and reliable backend systems. I am a software developer specialized in .NET Core, microservice architecture and modern technologies.',
+                about_title: 'About Me',
+                about_role: 'Backend Developer',
+                about_p1: 'I graduated from Eskisehir Osmangazi University Computer Engineering. I have practical experience in developing backend systems with .NET Core.',
+                about_p2: 'I develop scalable, maintainable and testable applications with Clean Architecture, Domain-Driven Design (DDD) and modern software development principles.',
+                about_p3: 'I produce solutions to real-world problems such as smart city solutions, geographic information systems and payment systems.',
+                stat_experience: 'Years Experience',
+                stat_projects: 'Projects',
+                stat_technologies: 'Technologies',
+                stat_success: 'Success',
+                skills_title: 'Technical Skills',
+                experience_title: 'Work Experience',
+                exp1_title: 'Backend Developer',
+                exp1_company: 'Piton Technology - Eskisehir',
+                exp1_date: 'July 2024 - Present',
+                exp1_desc1: 'Designed scalable web applications for smart city solutions, GIS and payment systems',
+                exp1_desc2: 'Improved response time by 40% using .NET Core, EF Core, ABP Framework and Clean Architecture',
+                exp1_desc3: 'Optimized performance with Redis caching and Elastic Search',
+                exp1_desc4: 'Built asynchronous message pipelines with RabbitMQ, processing tens of thousands of messages daily',
+                exp1_desc5: 'Created clean and maintainable codebases with DDD and Repository Pattern',
+                exp2_title: 'Backend Developer Intern',
+                exp2_company: 'Piton Technology - Eskisehir',
+                exp2_date: 'May 2024 - July 2024',
+                exp2_desc1: 'Developed modular and secure bank management system',
+                exp2_desc2: 'Used .NET Core, ABP Framework, SQL Server, Redis and Elastic Search',
+                exp2_desc3: 'Developed admin panel that streamlines bank transaction management',
+                exp3_title: 'Backend Developer Intern',
+                exp3_company: 'Metasoft - Eskisehir',
+                exp3_date: 'January 2024 - February 2024',
+                exp3_desc1: 'Developed rating portal using .NET Core, SQL, HTML, CSS and JavaScript',
+                exp3_desc2: 'Analyzed customer feedback data and proposed system improvements',
+                exp4_title: 'Backend Developer Intern',
+                exp4_company: 'Selcuk University - Konya',
+                exp4_date: 'January 2023 - February 2023',
+                exp4_desc1: 'Developed comprehensive car rental application using .NET Core and SQL',
+                projects_title: 'Projects',
+                project1_title: 'Student Information System',
+                project1_desc: 'A portal that provides real-time information on course schedules, exam results and attendance status for students and faculty members.',
+                project2_title: 'Game Center Information System',
+                project2_desc: 'A system for game center operators to manage rented computers, track rental periods and process customer orders.',
+                project2_tag: 'Business Management',
+                project3_title: 'Veterinary Information System',
+                project3_desc: 'A desktop application that helps veterinarians manage patient records and business operations.',
+                contact_title: 'Contact',
+                contact_description: 'You can contact me for your projects. I am always open to new opportunities and collaborations.',
+                contact_location: 'Location',
+                contact_location_value: 'Eskisehir, Turkey',
+                footer_copyright: '&copy; 2024 Emir Leylek. All rights reserved.'
+            }
+        };
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('[data-tr]').forEach(element => {
+                const key = element.getAttribute('data-tr');
+                if (translations[currentLang][key]) {
+                    element.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+        
+        langSelect.addEventListener('change', (e) => {
+            switchLanguage(e.target.value);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Three.js 3D Animation
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+        script.onload = () => {
+            const canvas = document.getElementById('hero-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            camera.position.z = 5;
+
+            // Create particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 1500;
+            const posArray = new Float32Array(particlesCount * 3);
+            
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 15;
+            }
+            
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.02,
+                color: 0x2563eb,
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending
+            });
+            
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            // Create floating geometric shapes
+            const geometries = [
+                new THREE.IcosahedronGeometry(0.3, 0),
+                new THREE.OctahedronGeometry(0.3, 0),
+                new THREE.TetrahedronGeometry(0.3, 0)
+            ];
+
+            const shapes = [];
+            for(let i = 0; i < 8; i++) {
+                const geometry = geometries[Math.floor(Math.random() * geometries.length)];
+                const material = new THREE.MeshBasicMaterial({
+                    color: i % 2 === 0 ? 0x2563eb : 0x0ea5e9,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                const mesh = new THREE.Mesh(geometry, material);
+                
+                mesh.position.x = (Math.random() - 0.5) * 10;
+                mesh.position.y = (Math.random() - 0.5) * 10;
+                mesh.position.z = (Math.random() - 0.5) * 5;
+                
+                mesh.rotation.x = Math.random() * Math.PI;
+                mesh.rotation.y = Math.random() * Math.PI;
+                
+                mesh.userData = {
+                    rotationSpeed: {
+                        x: (Math.random() - 0.5) * 0.02,
+                        y: (Math.random() - 0.5) * 0.02,
+                        z: (Math.random() - 0.5) * 0.02
+                    },
+                    floatSpeed: Math.random() * 0.5 + 0.5,
+                    floatOffset: Math.random() * Math.PI * 2
+                };
+                
+                shapes.push(mesh);
+                scene.add(mesh);
+            }
+
+            // Mouse movement effect
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            // Animation loop
+            let time = 0;
+            function animate() {
+                requestAnimationFrame(animate);
+                time += 0.01;
+
+                // Rotate particles
+                particlesMesh.rotation.y += 0.0005;
+                particlesMesh.rotation.x += 0.0003;
+
+                // Animate shapes
+                shapes.forEach((shape, index) => {
+                    shape.rotation.x += shape.userData.rotationSpeed.x;
+                    shape.rotation.y += shape.userData.rotationSpeed.y;
+                    shape.rotation.z += shape.userData.rotationSpeed.z;
+                    
+                    shape.position.y += Math.sin(time * shape.userData.floatSpeed + shape.userData.floatOffset) * 0.001;
+                });
+
+                // Mouse interaction
+                camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.05;
+                camera.position.y += (mouseY * 0.5 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            // Cleanup on page navigation
+            window.addEventListener('beforeunload', () => {
+                renderer.dispose();
+                particlesGeometry.dispose();
+                particlesMaterial.dispose();
+                shapes.forEach(shape => {
+                    shape.geometry.dispose();
+                    shape.material.dispose();
+                });
+            });
+        };
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>
